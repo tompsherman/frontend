@@ -1,9 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 import {Route, Link, Switch, useHistory} from "react-router-dom"
 import DashboardCard from "./DashboardCard"
 import PostForm from "./PostForm"
 
-function Dashboard() {
+function Dashboard({onDashboard}) {
     
     const history = useHistory()
   
@@ -11,13 +11,17 @@ function Dashboard() {
         event.preventDefault()
         history.push("/postform")
     }
+
+    useEffect(() => {
+        onDashboard(true)
+    })
     
     return (
         <>
 {/*     <Link to="/postform"><button onSubmit={onSubmit}>Post Form</button></Link>
 ​        <Route path="/postform"> */}
             <DashboardCard />
-            <PostForm  />
+            <PostForm />
             {/* </Route> */}
             {/* <Route path="/dashboardcard"> */}
                
@@ -26,4 +30,4 @@ function Dashboard() {
     )
 }
 
-export default DashboardCard;
+export default Dashboard;

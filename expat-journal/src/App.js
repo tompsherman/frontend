@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Route, Link, Switch} from 'react-router-dom'
 import Login from './Login'
 import Register from './Register'
@@ -8,6 +8,8 @@ import Dashboard from './Dashboard'
 
 function App() {
 
+  const [onDashboard, setOnDashboard] = useState(false)
+
   const onSubmit = () => {
 
   }
@@ -16,8 +18,10 @@ function App() {
     <>
     <div className="App">
         <h1>Ex-Pat Journal</h1>
-        <Link to="/login"><button>Log In</button></Link>
-        <Link to="/register"><button onSubmit={onSubmit}>Register</button></Link>
+        {!onDashboard ? (<>
+          <Link to="/login"><button>Log In</button></Link>
+          <Link to="/register"><button onSubmit={onSubmit}>Register</button></Link>
+        </>) : ''}
       </div>
         <Switch>
           <Route path="/login">
@@ -27,7 +31,7 @@ function App() {
             <Register />
           </Route>
           <Route path="/dashboard">
-            <Dashboard />  
+            <Dashboard onDashboard={setOnDashboard} />  
           </Route>      
         </Switch>
     </>
