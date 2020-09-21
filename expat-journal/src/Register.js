@@ -1,9 +1,18 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {Route, Link, Switch, useHistory} from 'react-router-dom'
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import Dashboard from './Dashboard'
 
 const Register = (props) => {
+    const history = useHistory()
+  
+  const onSubmit = (event) => {
+      event.preventDefault()
+      history.push("/dashboard")
+  }
+  
   return (
-    <Form>
+    <Form onSubmit={onSubmit}> 
         <h2>Register</h2>
         <FormGroup>
         <Label for="name">Name</Label>
@@ -23,7 +32,7 @@ const Register = (props) => {
           I agree with the terms of service
         </Label>
       </FormGroup>
-      <Button>Submit</Button>
+      <button type="submit" onSubmit={onSubmit} >Submit</button>
     </Form>
   );
 }

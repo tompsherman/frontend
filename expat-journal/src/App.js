@@ -1,19 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from 'react'
+import {Route, Link, Switch} from 'react-router-dom'
 import Login from './Login'
 import Register from './Register'
-import './App.css';
-import PostForm from './PostForm';
-import DashboardCard from './Dashboard'
+import './App.css'
+import PostForm from './PostForm'
+import Dashboard from './Dashboard'
 
 function App() {
+
+  const onSubmit = () => {
+
+  }
+  
   return (
+    <>
     <div className="App">
-      <Login />
-      <Register />
-      <PostForm />
-      <DashboardCard />
-    </div>
+        <h1>Ex-Pat Journal</h1>
+        <Link to="/login"><button>Log In</button></Link>
+        <Link to="/register"><button onSubmit={onSubmit}>Register</button></Link>
+      </div>
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path ="/register">  
+            <Register />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />  
+          </Route>      
+        </Switch>
+    </>
   );
 }
 
