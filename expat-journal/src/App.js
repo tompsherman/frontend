@@ -5,6 +5,7 @@ import Register from './Register'
 import './App.css'
 import PostForm from './PostForm'
 import Dashboard from './Dashboard'
+import styled from 'styled-components'
 
 function App() {
 
@@ -16,13 +17,15 @@ function App() {
   
   return (
     <>
-    <div className="App">
+    <StyledApp>
+    <div className="app">
         <h1>Ex-Pat Journal</h1>
         {!onDashboard ? (<>
           <Link to="/login"><button>Log In</button></Link>
           <Link to="/register"><button onSubmit={onSubmit}>Register</button></Link>
         </>) : ''}
       </div>
+      </StyledApp>
         <Switch>
           <Route path="/login">
             <Login />
@@ -37,5 +40,11 @@ function App() {
     </>
   );
 }
+
+const StyledApp = styled.main `
+ h1{
+   text-align: center;
+ }
+`
 
 export default App;
