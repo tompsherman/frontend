@@ -2,7 +2,7 @@
 
 * App.js
   - Skeleton of the file
-  - test
+  -test
 * Login.js
   - Page with a place to enter email and password
 * Register.js
