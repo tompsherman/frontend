@@ -8,19 +8,45 @@ import styled from 'styled-components'
 const DashboardCard = (props) => {
     
     return (
-    <div className="card">
+    <StyledMain>
       <Card>
-        <CardImg top width="50%" src="https://images.unsplash.com/photo-1600678008229-fb5b07b226a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Card image cap" />
-        <CardBody>
-          <CardTitle>"{"name"}"</CardTitle>
-          <CardSubtitle>"{"tagline"}"</CardSubtitle>
-          <CardText>"{"date"}"</CardText>
-          <CardText>"{"country"}"</CardText>
-          <CardText>{"description"}</CardText>
-          <CardText>{"rating"}</CardText>
+        <div className="card">
+        <CardImg className="img" top width="50%" src="https://pullman.accor.com/destinations/country/thailand-1400x788-1.jpg" alt="Card image cap" />
+        <CardBody className="cardBody">
+          <CardTitle className="title">"{"name"}"</CardTitle>
+          <CardSubtitle className="subTitle">"{"tagline"}"</CardSubtitle>
+          <CardText className="text">"{"date"}"</CardText>
+          <CardText className="text">"{"country"}"</CardText>
+          <CardText className="text">{"description"}</CardText>
+          <CardText className="text">{"rating"}</CardText>
         </CardBody>
+        </div>
       </Card>
-    </div>
+    </StyledMain>
   );
 };
+
+const StyledMain = styled.main `
+ .card {
+    border: 2.5px solid #9bc1bc; 
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .cardText {
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cardBody {
+    text-align: center;
+    font-family: 'Rock Salt', cursive;
+    font-family: 'Nunito', sans-serif;
+  }
+
+`
 export default DashboardCard;
