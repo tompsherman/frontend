@@ -20,7 +20,7 @@ const initialFormErrors = {
   username: "",
   email: "",
   password: "",
-  checkbox: false
+  checkbox: ""
 }
 
 const initialDisabled = true
@@ -75,7 +75,7 @@ const Register = (props) => {
   useEffect(()=>{
     schema.isValid(formValues)
       .then(valid => {
-        setDisabled(!valid)
+        setDisabled(valid)
       })
   }, [formValues])
   
@@ -84,7 +84,7 @@ const Register = (props) => {
       <h2>Register</h2>
 
       <div>
-      <div>{formErrors.username}</div>
+        <div>{formErrors.username}</div>
         <div>{formErrors.email}</div>
         <div>{formErrors.password}</div>
         <div>{formErrors.checkbox}</div>
