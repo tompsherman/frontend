@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import {Route, Link, Switch} from 'react-router-dom'
-import Login from './Login'
-import Register from './Register'
+import Login from './components/Login'
+import Register from './components/Register'
 import './App.css'
-import PostForm from './PostForm'
-import Dashboard from './Dashboard'
+import PostForm from './components/PostForm'
+import Dashboard from './components/Dashboard'
 import styled from 'styled-components'
 
 function App() {

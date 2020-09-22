@@ -3,7 +3,7 @@ import {Route, Link, Switch, useHistory} from 'react-router-dom'
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import axios from "axios"
 import * as yup from "yup"
-import schema from "./logFormSchema"
+import schema from "../formSchemas/logFormSchema"
 
 const initialFormValues= {
   username: "",

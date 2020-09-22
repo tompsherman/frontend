@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import axios from "axios"
 import Dashboard from './Dashboard'
 import * as yup from "yup"
-import schema from "./regFormSchema"
+import schema from "../formSchemas/regFormSchema"
 
 
 

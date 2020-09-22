@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import * as yup from "yup"
-import schema from "./postFormSchema"
+import schema from "../formSchemas/postFormSchema"
 import axios from "axios"
 
 const initialFormValues = {
