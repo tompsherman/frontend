@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import * as yup from "yup"
 import schema from "./postFormSchema"
+import axios from "axios"
 
 const initialFormValues = {
   name: "",
@@ -18,9 +19,12 @@ const initialFormErrors = {
   title: "",
 }
 
+const initialDisabled = true
+
 const PostForm = (props) => {
   const [formValues, setFormValues] = useState(initialFormValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
+  const [disabled, setDisabled] = useState(initialDisabled)
   const [post, setPost] = useState([])
 
   const validate = (name, value) => {
@@ -58,11 +62,19 @@ const PostForm = (props) => {
         rating: formValues.rating,
         viewable: formValues.viewable
       }
-      // axios 
-      //     .post()
-      //     .then()
-      //     .catch()
+      axios 
+        .post()
+        .then()
+        .catch()
   })
+
+  useEffect(()=>{
+    schema.isValid(formValues)
+      .then(valid => {
+        setDisabled(!valid)
+      })
+  }, [formValues])
+
   return (
    <>
       <h2>Add a new entry:</h2>
@@ -142,7 +154,7 @@ const PostForm = (props) => {
             Make Post Private
           </Label>
         </FormGroup>
-        <Button>Submit</Button>
+        <Button disabled={disabled}>Submit</Button>
       </Form>
    </>
    
