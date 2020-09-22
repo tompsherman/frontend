@@ -1,3 +1,4 @@
+//all me code (TE)
 import React, { useState } from "react";
 import AxiosWithAuth from "../utils/AxiosWithAuth";
 import { useHistory } from "react-router-dom";
@@ -11,23 +12,15 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(form, "handle submit");
     AxiosWithAuth()
-      .post(
-        "https://expat-journal-bw.herokuapp.com/api/expat/auth/login",
-        `grant_type=password&username=${form.username}&password=${form.password}`,
-        {
-          headers: {
-            // btoa is converting our client id/client secret into base64
-            Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-        }
-      )
+      .post("/api/expat/auth/login", form)
       .then((res) => {
-        console.log(res.data);
-        localStorage.setItem("token", res.data.access_token);
-        props.history.push("/");
-      });
+        localStorage.setItem("token", res.data.payload);
+        history.push("/posts");
+        console.log("Login res:", res);
+      })
+      .catch((err) => console.log("Login error:", err));
   };
 
   return (
