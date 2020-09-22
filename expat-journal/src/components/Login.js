@@ -4,6 +4,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import axios from "axios"
 import * as yup from "yup"
 import schema from "../formSchemas/logFormSchema"
+import styled from "styled-components"
 
 const initialFormValues= {
   username: "",
