@@ -51,6 +51,10 @@ function App() {
 }
 
 const StyledApp = styled.main `
+
+h1 {
+  font-family: 'Rock Salt', cursive;
+}
  .app {
    background-image: url("https://cdn.pixabay.com/photo/2016/01/09/18/27/old-1130731_960_720.jpg");
    background-repeat: no-repeat;
@@ -65,7 +69,7 @@ const StyledApp = styled.main `
    background-color: #ED6A5A;
    margin: 0 auto;
    width: 100%;
-   font-family: 'Roboto Mono', monospace;
+   font-family: 'Nunito', sans-serif;
  }
 
  button {
@@ -74,14 +78,14 @@ const StyledApp = styled.main `
    background-color: #5CA4A9;
    padding: 15px;
    width: 25%;
-   text-align: center
-   font-family: 'Roboto Mono', monospace;
+   text-align: center;
+   font-family: 'Nunito', sans-serif;
  }
 
  .links > button {
    display: flex;
    justify-content: center;
-   font-family: 'Roboto Mono', monospace;
+   font-family: 'Nunito', sans-serif;
    
  }
 
@@ -89,7 +93,7 @@ const StyledApp = styled.main `
    display: flex;
    justify-content: center;
    width: 100%;
-   font-family: 'Roboto Mono', monospace;
+   font-family: 'Nunito', sans-serif;
    /* &:hover{
       background-color: slategrey;
       color: greenyellow;

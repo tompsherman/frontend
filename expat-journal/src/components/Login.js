@@ -73,28 +73,56 @@ const Login = (props) => {
     
 return (
     
-    <>
-      <h1>Login</h1>
+  <StyledForm onSubmit={onSubmit}>
+      <h2>Login</h2>
 
       <div>
           <div>{formErrors.username}</div>
+          <br />
           <div>{formErrors.password}</div>
       </div>
+      <br />
       
-      <Form onSubmit={onSubmit}>
       <FormGroup>
           <Label for="username">Username: </Label>
           <Input type="text" name="username" id="username" value={formValues.username} onChange={logChange} placeholder="enter username" />
         </FormGroup>
-        
+        <br />
         <FormGroup>
           <Label for="password">Password: </Label>
           <Input type="password" name="password" id="password" value={formValues.password} onChange={logChange} placeholder="enter password" />
         </FormGroup>
+        <br />
         <Button  type="submit" onSubmit={onSubmit} disabled={disabled}>Submit</Button>
-      </Form>
-    </>
+      </StyledForm>
   );
 }
 
-export default Login;
+const StyledForm = styled.form `
+  h2 {
+    font-family: 'Rock Salt', cursive;
+    padding: 15px;
+  }
+
+  input, label {
+    padding: 15px;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  input {
+    border-radius: 5px;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  button {
+   border-radius: 5px;
+   color: #F4F1BB;
+   background-color: #5CA4A9;
+   padding: 15px;
+   width: 25%;
+   text-align: center;
+   font-family: 'Nunito', sans-serif;
+ }
+`
+
+export default Login

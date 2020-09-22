@@ -82,7 +82,7 @@ const Register = (props) => {
   }, [formValues])
   
   return (
-    <>
+    <StyledForm onSubmit={onSubmit}> 
       <h2>Register</h2>
 
       <div>
@@ -91,37 +91,53 @@ const Register = (props) => {
         <div>{formErrors.password}</div>
         <div>{formErrors.checkbox}</div>
       </div>
-
-      <StyledForm onSubmit={onSubmit}> 
           <FormGroup>
           <Label for="username">Username: </Label>
-          <Input type="text" name="username" id="username" value={formValues.username} onChange={regChange} placeholder="enter your username" />
+          <Input type="text" name="username" id="username" value={formValues.username} onChange={regChange} placeholder="Enter your username" />
         </FormGroup>
-      
+        <br />
         <FormGroup>
           <Label for="email">Login Email: </Label>
-          <Input type="email" name="email" id="email" value={formValues.email} onChange ={regChange} placeholder="with a placeholder" />
+          <Input type="email" name="email" id="email" value={formValues.email} onChange ={regChange} placeholder="Enter your email" />
         </FormGroup>
+        <br />
         <FormGroup>
           <Label for="password">Password: </Label>
-          <Input type="password" name="password" id="password" value={formValues.password} onChange ={regChange} placeholder="password placeholder" />
+          <Input type="password" name="password" id="password" value={formValues.password} onChange ={regChange} placeholder="Enter password" />
         </FormGroup>
+        <br />
         <FormGroup check>
           <Label check>
             <Input name="checkbox" type="checkbox" value={formValues.checkbox} checked={formValues.checkbox} onChange ={regChange}/>{' '}
             I agree with the terms of service
           </Label>
         </FormGroup>
+        <br />
         <button type="submit" onSubmit={onSubmit} disabled={disabled}>Submit</button>
       </StyledForm>
-    </>
   );
 }
 
 const StyledForm = styled.form `
   h2 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Rock Salt', cursive;
+    padding: 15px;
   }
+
+  input, label {
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  button {
+   border-radius: 5px;
+   color: #F4F1BB;
+   background-color: #5CA4A9;
+   padding: 15px;
+   width: 25%;
+   text-align: center;
+   font-family: 'Nunito', sans-serif;
+ }
 `
 
 export default Register;
