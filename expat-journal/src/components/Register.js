@@ -20,10 +20,10 @@ const initialFormErrors = {
   username: "",
   email: "",
   password: "",
-  checkbox: ""
+  checkbox: false
 }
 
-const initialDisabled = true
+const initialDisabled = false
 
 const Register = (props) => {
   const [formValues, setFormValues] = useState(initialFormValues)
@@ -60,7 +60,8 @@ const Register = (props) => {
       const newUser = {
         username: formValues.username.trim(),
         email: formValues.email.trim(),
-        password: formValues.password.trim()
+        password: formValues.password.trim(),
+        checkbox: formValues.checkbox
       }
       axios
           .post("https://expat-journal-bw.herokuapp.com/api/expat/auth/register", newUser)
@@ -75,7 +76,7 @@ const Register = (props) => {
   useEffect(()=>{
     schema.isValid(formValues)
       .then(valid => {
-        setDisabled(valid)
+        setDisabled(!valid)
       })
   }, [formValues])
   
@@ -106,7 +107,7 @@ const Register = (props) => {
         </FormGroup>
         <FormGroup check>
           <Label check>
-            <Input name="checkbox" type="checkbox" value={formValues.checkbox} onChange ={regChange}/>{' '}
+            <Input name="checkbox" type="checkbox" value={formValues.checkbox} checked={formValues.checkbox} onChange ={regChange}/>{' '}
             I agree with the terms of service
           </Label>
         </FormGroup>
