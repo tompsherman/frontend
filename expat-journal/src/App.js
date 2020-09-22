@@ -30,11 +30,8 @@ function App() {
             <Link to="/register"><button onSubmit={onSubmit}>Register</button></Link>
           </>) : ''}
         </div>
-
-     
-      </div>
+    </div>
       </StyledApp>
-      <div className="main">
         <Switch>
           <Route path="/login">
             <Login />
@@ -49,17 +46,17 @@ function App() {
             <PostPage onPostPage={setOnPostPage} />  
           </Route>   
         </Switch>
-      </div>
     </>
   );
 }
 
 const StyledApp = styled.main `
- .main {
-   background-image: url("https://us04web.zoom.us/j/72123799692?pwd=dWJDVUM5dng2T2lyTFF3MkNxaVdjQT09");
+ .app {
+   background-image: url("https://cdn.pixabay.com/photo/2016/01/09/18/27/old-1130731_960_720.jpg");
    background-repeat: no-repeat;
    background-position: center;
    background-size: cover;
+   height: 500px;
  }
  
  .title{
@@ -68,6 +65,7 @@ const StyledApp = styled.main `
    background-color: #ED6A5A;
    margin: 0 auto;
    width: 100%;
+   font-family: 'Roboto Mono', monospace;
  }
 
  button {
@@ -77,19 +75,22 @@ const StyledApp = styled.main `
    padding: 15px;
    width: 25%;
    text-align: center
+   font-family: 'Roboto Mono', monospace;
  }
 
  .links > button {
    display: flex;
    justify-content: center;
+   font-family: 'Roboto Mono', monospace;
    
  }
 
- .links:a {
+ .links:a > button {
    display: flex;
    justify-content: center;
    width: 100%;
-   &:hover{
+   font-family: 'Roboto Mono', monospace;
+   /* &:hover{
       background-color: slategrey;
       color: greenyellow;
       cursor: pointer;
@@ -101,7 +102,7 @@ const StyledApp = styled.main `
   &:active {
       border: gray;
       outline: none;
-  }
+  } */
  }
 `
 

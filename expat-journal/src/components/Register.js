@@ -5,6 +5,7 @@ import axios from "axios"
 import Dashboard from './Dashboard'
 import * as yup from "yup"
 import schema from "../formSchemas/regFormSchema"
+import styled from "styled-components"
 
 
 
@@ -91,7 +92,7 @@ const Register = (props) => {
         <div>{formErrors.checkbox}</div>
       </div>
 
-      <Form onSubmit={onSubmit}> 
+      <StyledForm onSubmit={onSubmit}> 
           <FormGroup>
           <Label for="username">Username: </Label>
           <Input type="text" name="username" id="username" value={formValues.username} onChange={regChange} placeholder="enter your username" />
@@ -112,9 +113,15 @@ const Register = (props) => {
           </Label>
         </FormGroup>
         <button type="submit" onSubmit={onSubmit} disabled={disabled}>Submit</button>
-      </Form>
+      </StyledForm>
     </>
   );
 }
+
+const StyledForm = styled.form `
+  h2 {
+    font-family: 'Nunito', sans-serif;
+  }
+`
 
 export default Register;
