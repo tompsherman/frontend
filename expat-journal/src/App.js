@@ -24,11 +24,13 @@ function App() {
       <div className="title">
         <h1>Ex-Pat Journal</h1>
       </div>
-        <div className="links">
-          {!onDashboard ? (<>
-            <Link to="/login"><button>Log In</button></Link>
-            <Link to="/register"><button onSubmit={onSubmit}>Register</button></Link>
-          </>) : ''}
+        <div className= "button-container">
+          <div className="links">
+            {!onDashboard ? (<>
+              <Link to="/login"><button>Log In</button></Link>
+              <Link to="/register"><button onSubmit={onSubmit}>Register</button></Link>
+            </>) : ''}
+          </div>
         </div>
     </div>
       </StyledApp>
@@ -51,7 +53,9 @@ function App() {
 }
 
 const StyledApp = styled.main `
-
+*{
+  border: 3px solid gray;
+}
 h1 {
   font-family: 'Rock Salt', cursive;
 }
@@ -76,13 +80,22 @@ h1 {
    border-radius: 15px;
    color: #F4F1BB;
    background-color: #5CA4A9;
-   padding: 15px;
-   width: 25%;
    text-align: center;
    font-family: 'Nunito', sans-serif;
+   padding: 15%;
+   width: 100%;
+ }
+
+ .button-container{
+   height: 35vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: 3px solid gray;
  }
 
  .links > button {
+   width: 50%;
    display: flex;
    justify-content: center;
    font-family: 'Nunito', sans-serif;
@@ -90,8 +103,7 @@ h1 {
  }
 
  .links:a > button {
-   display: flex;
-   justify-content: center;
+  
    width: 100%;
    font-family: 'Nunito', sans-serif;
    /* &:hover{

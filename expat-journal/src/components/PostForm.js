@@ -3,6 +3,8 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import * as yup from "yup"
 import schema from "../formSchemas/postFormSchema"
 import axios from "axios"
+import Dashboard from './Dashboard';
+import DashboardCard from './DashboardCard';
 
 const initialFormValues = {
   name: "",
@@ -156,6 +158,8 @@ const PostForm = (props) => {
         </FormGroup>
         <Button disabled={disabled}>Submit</Button>
       </Form>
+
+      <DashboardCard post={post}/>
    </>
    
   );
