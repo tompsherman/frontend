@@ -42,6 +42,8 @@ const DashboardCard = ({post}) => {
           <CardText className="text">{"description"}</CardText>
           <CardText className="text">{"rating"}</CardText>
           <button onSubmit={deleteEntry}>Delete Entry</button>
+          <br />
+          <br />
         </CardBody>
         </div>
       </Card>
@@ -69,6 +71,30 @@ const StyledMain = styled.main `
     text-align: center;
     font-family: 'Rock Salt', cursive;
     font-family: 'Nunito', sans-serif;
+  }
+
+  button {
+        border-radius: 5px;
+        color: #F4F1BB;
+        background-color: #5CA4A9;
+        padding: 15px;
+        width: 25%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        font-family: 'Nunito', sans-serif;
+        &:hover{
+          background-color: #F4F1BB;
+          color: #5CA4A9;
+          cursor: pointer;
+        }
+        &:focus {
+        border: gray;
+        outline: none;
+        }
+        &:active {
+        border: gray;
+        outline: none;
   }
 
 `

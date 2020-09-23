@@ -75,14 +75,11 @@ return (
     
   <StyledForm onSubmit={onSubmit}>
       <h2>Login</h2>
-
       <div>
           <div>{formErrors.username}</div>
           <br />
           <div>{formErrors.password}</div>
       </div>
-      <br />
-      
       <FormGroup>
           <Label for="username">Username: </Label>
           <Input type="text" name="username" id="username" value={formValues.username} onChange={logChange} placeholder="enter username" />
@@ -122,6 +119,11 @@ const StyledForm = styled.form `
    width: 25%;
    text-align: center;
    font-family: 'Nunito', sans-serif;
+   &:hover{
+    background-color: #F4F1BB;
+    color: #5CA4A9;
+    cursor: pointer;
+   }
  }
 `
 

@@ -59,12 +59,10 @@ function App() {
 }
 
 const StyledApp = styled.main `
-*{
-  border: 3px solid gray;
-}
-h1 {
+  h1 {
   font-family: 'Rock Salt', cursive;
-}
+  }
+
  .app {
    background-image: url("https://cdn.pixabay.com/photo/2016/01/09/18/27/old-1130731_960_720.jpg");
    background-repeat: no-repeat;
@@ -83,48 +81,28 @@ h1 {
  }
 
  button {
-   border-radius: 15px;
-   color: #F4F1BB;
-   background-color: #5CA4A9;
-   text-align: center;
-   font-family: 'Nunito', sans-serif;
-   padding: 15%;
-   width: 100%;
- }
-
- .button-container{
-   height: 35vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   border: 3px solid gray;
- }
-
- .links > button {
-   width: 50%;
-   display: flex;
-   justify-content: center;
-   font-family: 'Nunito', sans-serif;
-   
- }
-
- .links:a > button {
-  
-   width: 100%;
-   font-family: 'Nunito', sans-serif;
-   /* &:hover{
-      background-color: slategrey;
-      color: greenyellow;
-      cursor: pointer;
+        border-radius: 5px;
+        color: #F4F1BB;
+        background-color: #5CA4A9;
+        padding: 15px;
+        width: 150px;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        font-family: 'Nunito', sans-serif;
+        &:hover{
+          background-color: #F4F1BB;
+          color: #5CA4A9;
+          cursor: pointer;
+        }
+        &:focus {
+        border: gray;
+        outline: none;
+        }
+        &:active {
+        border: gray;
+        outline: none;
   }
-  &:focus {
-      border: gray;
-      outline: none;
-      }
-  &:active {
-      border: gray;
-      outline: none;
-  } */
  }
 `
 

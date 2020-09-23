@@ -137,6 +137,11 @@ const StyledForm = styled.form `
    width: 25%;
    text-align: center;
    font-family: 'Nunito', sans-serif;
+   &:hover{
+    background-color: #F4F1BB;
+    color: #5CA4A9;
+    cursor: pointer;
+   }
  }
 `
 
