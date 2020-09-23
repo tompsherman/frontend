@@ -22,7 +22,7 @@ function Dashboard({onDashboard}) {
             <DashboardCard />
             <br />
             <br />
-            <Link to="/postpage" className="link" onSubmit={onSubmit}>New Post Form</Link>
+            <Link to="/postpage" className="link" onSubmit={onSubmit}>Submit New Post</Link>
         </StyledMain>
     )
 }
