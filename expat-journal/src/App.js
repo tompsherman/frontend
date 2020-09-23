@@ -7,6 +7,7 @@ import PostForm from './components/PostForm'
 import PostPage from './components/PostPage'
 import Dashboard from './components/Dashboard'
 import styled from 'styled-components'
+import RandomCountry from "./components/RandomCountry"
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
             </>) : ''}
           </div>
         </div>
+        
     </div>
       </StyledApp>
         <Switch>
@@ -48,6 +50,10 @@ function App() {
             <PostPage onPostPage={setOnPostPage} />  
           </Route>   
         </Switch>
+        <br />
+        <hr />
+        <br/>
+        <RandomCountry />
     </>
   );
 }
