@@ -22,7 +22,7 @@ function Dashboard({onDashboard}) {
             <DashboardCard />
             <br />
             <br />
-            <Link to="/postpage"><button className="postButton" onSubmit={onSubmit}>New Post Form</button></Link>
+            <Link to="/postpage" className="link" onSubmit={onSubmit}>New Post Form</Link>
         </StyledMain>
     )
 }
@@ -32,8 +32,9 @@ const StyledMain = styled.main `
     h2 {
         font-family: 'Rock Salt', cursive;
     }
-    button {
+    .link {
         border-radius: 5px;
+        border: 2px solid darkgrey;
         color: #F4F1BB;
         background-color: #5CA4A9;
         padding: 15px;
@@ -41,11 +42,12 @@ const StyledMain = styled.main `
         display: block;
         margin: 0 auto;
         text-align: center;
+        text-decoration: none;
         font-family: 'Nunito', sans-serif;
         &:hover{
-        background-color: slategrey;
-        color: greenyellow;
-        cursor: pointer;
+          background-color: #F4F1BB;
+          color: #5CA4A9;
+          cursor: pointer;
         }
         &:focus {
         border: gray;

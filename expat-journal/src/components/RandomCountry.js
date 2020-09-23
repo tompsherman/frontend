@@ -69,6 +69,7 @@ p {
 
 button {
    border-radius: 5px;
+   border: 2px solid darkgrey;
    color: #F4F1BB;
    background-color: #5CA4A9;
    text-align: center;

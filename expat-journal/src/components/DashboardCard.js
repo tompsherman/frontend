@@ -75,6 +75,7 @@ const StyledMain = styled.main `
 
   button {
         border-radius: 5px;
+        order: 2px solid darkgrey;
         color: #F4F1BB;
         background-color: #5CA4A9;
         padding: 15px;
@@ -96,6 +97,6 @@ const StyledMain = styled.main `
         border: gray;
         outline: none;
   }
-
+}
 `
 export default DashboardCard;
