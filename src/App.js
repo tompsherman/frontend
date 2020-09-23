@@ -52,8 +52,10 @@ function App() {
         <Route path="/postpage">
           <PostPage onPostPage={setOnPostPage} />
         </Route> */}
-        <PrivateRoute path="/posts">
+        <PrivateRoute path="/dashboard">
           <Dashboard onDashboard={setOnDashboard} />
+        </PrivateRoute>
+        <PrivateRoute path="/postpage">
           <PostPage onPostPage={setOnPostPage} />
         </PrivateRoute>
       </Switch>
