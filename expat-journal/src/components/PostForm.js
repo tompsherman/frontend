@@ -5,6 +5,7 @@ import schema from "../formSchemas/postFormSchema"
 import axios from "axios"
 import Dashboard from './Dashboard';
 import DashboardCard from './DashboardCard';
+import styled from 'styled-components'
 
 const initialFormValues = {
   name: "",
@@ -86,37 +87,32 @@ const PostForm = (props) => {
         <div>{formErrors.title}</div>
       </div>
 
-      <Form onSubmit={submitHandler}>
+      <StyledForm onSubmit={submitHandler}>
        <FormGroup>
           <Label for="name">Name: </Label>
           <Input type="text" name="name" id="name" placeholder="enter your name" onChange={changeHandler}/>
         </FormGroup>
+        <br />
         <FormGroup>
           <Label for="title">Tagline: </Label>
           <Input type="text" name="title" id="title" placeholder="enter your post title" onChange={changeHandler}/>
         </FormGroup>
+        <br />
         <FormGroup>
           <Label for="location">Location: </Label>
           <Input type="text" name="location" id="location" placeholder="enter your post location" onChange={changeHandler}/>
         </FormGroup>
+        <br />
         <FormGroup>
           <Label for="date">Date: </Label>
           <Input type="text" name="date" id="date" placeholder="enter the date of your visit" onChange={changeHandler}/>
         </FormGroup>
-        {/* <FormGroup>
-          <Label for="exampleSelect">Select</Label>
-          <Input type="select" name="select" id="exampleSelect">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </Input>
-        </FormGroup> */}
+        <br />
         <FormGroup>
           <Label for="notes">Post notes: </Label>
           <Input type="notes" name="notes" id="notes" onChange={changeHandler}/>
         </FormGroup>
+        <br />
         <FormGroup tag="fieldset">
           <legend>rating</legend>
           <FormGroup check>
@@ -150,18 +146,48 @@ const PostForm = (props) => {
             </Label>
           </FormGroup>
         </FormGroup>
+        <br />
         <FormGroup check>
           <Label check>
             <Input name="viewable" type="checkbox" onChange={changeHandler}/>{' '}
             Make Post Private
           </Label>
         </FormGroup>
+        <br />
         <Button disabled={disabled}>Submit</Button>
-      </Form>
+      </StyledForm>
+      <br />
+      <br />
 
       <DashboardCard post={post}/>
    </>
    
   );
 }
+
+const StyledForm = styled.form `
+    button {
+        border-radius: 5px;
+        color: #F4F1BB;
+        background-color: #5CA4A9;
+        padding: 15px;
+        width: 25%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        font-family: 'Nunito', sans-serif;
+        &:hover{
+          background-color: #F4F1BB;
+          color: #5CA4A9;
+          cursor: pointer;
+        }
+        &:focus {
+        border: gray;
+        outline: none;
+        }
+        &:active {
+        border: gray;
+        outline: none;
+  }
+`
 export default PostForm;
