@@ -5,20 +5,43 @@ import {
 } from 'reactstrap';
 import styled from 'styled-components'
 
-const DashboardCard = (props) => {
+const DashboardCard = ({post}) => {
     
+  const deleteEntry = ()=> {
+   return(
+       <>
+       </>
+   )
+  }
+
     return (
     <StyledMain>
-      <Card>
+      <Card onSubmit={deleteEntry}>
         <div className="card">
+        
+        {/* {post.map((item)=>(
+          <div key={item.id}>
+            {item.image} 
+            {item.name}
+            {item.title}
+            {item.location}
+            {item.rating}
+            {item.contact}
+            {item.date}
+            <button onSubmit={deleteEntry}>Delete Entry</button>
+          </div>
+        ))} */}
+
         <CardImg className="img" top width="50%" src="https://pullman.accor.com/destinations/country/thailand-1400x788-1.jpg" alt="Card image cap" />
         <CardBody className="cardBody">
-          <CardTitle className="title">"{"name"}"</CardTitle>
-          <CardSubtitle className="subTitle">"{"tagline"}"</CardSubtitle>
-          <CardText className="text">"{"date"}"</CardText>
-          <CardText className="text">"{"country"}"</CardText>
+          <CardTitle className="title">{"name"}</CardTitle>
+          <br />
+          <CardSubtitle className="subTitle">{"tagline"}</CardSubtitle>
+          <CardText className="text">{"date"}</CardText>
+          <CardText className="text">{"country"}</CardText>
           <CardText className="text">{"description"}</CardText>
           <CardText className="text">{"rating"}</CardText>
+          <button onSubmit={deleteEntry}>Delete Entry</button>
         </CardBody>
         </div>
       </Card>
