@@ -166,8 +166,16 @@ const PostForm = (props) => {
 }
 
 const StyledForm = styled.form `
+
+    input {
+      border: 2px solid darkgrey;
+      padding: 15px;
+      border-radius: 5px;
+    }
+
     button {
         border-radius: 5px;
+        border: 2px solid darkgrey;
         color: #F4F1BB;
         background-color: #5CA4A9;
         padding: 15px;
@@ -189,5 +197,6 @@ const StyledForm = styled.form `
         border: gray;
         outline: none;
   }
+}
 `
 export default PostForm;

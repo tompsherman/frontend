@@ -28,8 +28,8 @@ function App() {
         <div className= "button-container">
           <div className="links">
             {!onDashboard ? (<>
-              <Link to="/login"><button>Log In</button></Link>
-              <Link to="/register"><button onSubmit={onSubmit}>Register</button></Link>
+              <Link className="link" to="/login">Log In</Link>
+              <Link className="link" to="/register">Register</Link>
             </>) : ''}
           </div>
         </div>
@@ -80,15 +80,17 @@ const StyledApp = styled.main `
    font-family: 'Nunito', sans-serif;
  }
 
- button {
+ .link {
         border-radius: 5px;
+        border: 2px solid darkgrey;
         color: #F4F1BB;
         background-color: #5CA4A9;
         padding: 15px;
         width: 150px;
         display: block;
-        margin: 0 auto;
+        margin: 1.5rem auto;
         text-align: center;
+        text-decoration: none;
         font-family: 'Nunito', sans-serif;
         &:hover{
           background-color: #F4F1BB;

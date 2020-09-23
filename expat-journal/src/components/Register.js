@@ -127,10 +127,16 @@ const StyledForm = styled.form `
   input, label {
     padding: 15px;
     border-radius: 5px;
+    
+  }
+
+  input {
+    border: 2px solid darkgrey;
   }
 
   button {
    border-radius: 5px;
+   border: 2px solid darkgrey;
    color: #F4F1BB;
    background-color: #5CA4A9;
    padding: 15px;
