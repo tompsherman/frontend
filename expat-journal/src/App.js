@@ -25,6 +25,17 @@ function App() {
       <div className="title">
         <h1>Ex-Pat Journal</h1>
       </div>
+      <nav className="nav">
+        <a href="https://focused-carson-e247ce.netlify.app/index.html"><b>Home</b></a>
+        <a href="https://focused-carson-e247ce.netlify.app/about%20team.html"><b>Meet The Team</b></a>
+        <a href="https://focused-carson-e247ce.netlify.app/location%201.html"><b>Entries</b></a>
+      </nav>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
         <div className= "button-container">
           <div className="links">
             {!onDashboard ? (<>
@@ -33,8 +44,10 @@ function App() {
             </>) : ''}
           </div>
         </div>
-        
     </div>
+    <br />
+        <br />
+        <br />
       </StyledApp>
         <Switch>
           <Route path="/login">
@@ -106,6 +119,38 @@ const StyledApp = styled.main `
         outline: none;
   }
  }
+
+ nav {
+   margin: 0 auto;
+   display: block;
+ }
+  .nav > a{
+        /* border-radius: 5px; */
+        /* border: 2px solid darkgrey; */
+        background-color: #ED6A5A;
+        color: black;
+        padding: 15px;
+        width: 150px;
+        /* display: inline; */
+        /* float: right; */
+        /* margin: 0 auto; */
+        text-align: center;
+        text-decoration: none;
+        font-family: 'Rock Salt', cursive;
+        &:hover{
+          background-color: #F4F1BB;
+          color: #5CA4A9;
+          cursor: pointer;
+        }
+        &:focus {
+        border: gray;
+        outline: none;
+        }
+        &:active {
+        border: gray;
+        outline: none;
+  }
+  }
 `
 
 export default App;
