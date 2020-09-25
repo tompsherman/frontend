@@ -199,7 +199,11 @@ const StyledForm = styled.form `
         &:active {
         border: gray;
         outline: none;
-  }
+        }
+        .dragDrop-container{
+          background-color: gray;
+        }
+
 }
 `
 export default PostForm;

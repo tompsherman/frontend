@@ -20,20 +20,20 @@ function DragDrop (){
 
     return (
         <StyledDiv className="dragDrop-container">
-            <StyledDiv {...getRootProps()}>
+            <div {...getRootProps()}>
                 <input {...getInputProps()} />
                 {
                     isDragActive ?
                     <p>Drop the files here...</p> :
-                    <p>Drag 'n drop some files here, or click to select files</p>
+                    <p>Drag 'n drop a photo here, or click to select photo</p>
                 }
-            </StyledDiv>
+            </div>
         </StyledDiv>
     )
 }
 
 const StyledDiv = styled.div `
-    .dragDrop-container{
+    .dragDrop-container:hover{
         border: 2px solid gray;
         color: blue;
     }
