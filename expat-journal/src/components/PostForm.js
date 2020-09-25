@@ -7,7 +7,8 @@ import Dashboard from "./Dashboard";
 import DashboardCard from "./DashboardCard";
 import { addPost } from "../actions/PostsActions";
 import styled from "styled-components";
-import DragDrop from "./DragDrop"
+import DragDrop from "./DragDrop";
+import { useHistory } from "react-router";
 
 const initialFormValues = {
   name: "",
@@ -31,6 +32,7 @@ const PostForm = (props) => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
   const [post, setPost] = useState([]);
+  const history = useHistory();
 
   const validate = (name, value) => {
     yup
@@ -71,7 +73,7 @@ const PostForm = (props) => {
       user_id: localStorage.getItem("user_id"),
     };
     console.log("New post:", newPost);
-    props.addPost(newPost);
+    props.addPost(newPost, history, setFormValues, initialFormValues);
     setFormValues(initialFormValues);
   };
 
@@ -283,11 +285,10 @@ const StyledForm = styled.form`
           background-color: gray;
         }
 
-}`
+}`;
 const mapStateToProps = (state) => {
   return {
     posts: state.posts,
   };
 };
 export default connect(mapStateToProps, { addPost })(PostForm);
-

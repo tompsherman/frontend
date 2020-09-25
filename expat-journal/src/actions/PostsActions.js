@@ -21,7 +21,9 @@ export const fetchPosts = (userId) => (dispatch) => {
 export const POST_ADD = "POST_ADD";
 export const POST_ADD_ERROR = "POST_ADD_ERROR";
 
-export const addPost = (newPost) => (dispatch) => {
+export const addPost = (newPost, history, setFormValues, initialFormValues) => (
+  dispatch
+) => {
   AxiosWithAuth()
     .post(
       "https://expat-journal-bw.herokuapp.com/api/expat/auth/protected/posts",
@@ -30,10 +32,14 @@ export const addPost = (newPost) => (dispatch) => {
     .then((res) => {
       console.log("New data:", res.data.posts);
       dispatch({ type: POST_ADD, payload: res.data.posts });
+      history.push("/dashboard");
     })
     .catch((err) => {
       console.log(err);
       dispatch({ type: POST_ADD_ERROR, payload: err.message });
+    })
+    .finally(() => {
+      setFormValues(initialFormValues);
     });
 };
 
