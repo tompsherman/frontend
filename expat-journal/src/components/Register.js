@@ -59,9 +59,7 @@ const Register = (props) => {
     event.preventDefault();
     const newUser = {
       username: formValues.username.trim(),
-      email: formValues.email.trim(),
       password: formValues.password.trim(),
-      checkbox: formValues.checkbox,
     };
     AxiosWithAuth()
       .post(
