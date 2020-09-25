@@ -1,31 +1,31 @@
-import React, {useState, useEffect} from 'react'
-import {Route, Link, Switch} from 'react-router-dom'
-import Login from './components/Login'
-import Register from './components/Register'
-import './App.css'
-import PostForm from './components/PostForm'
-import PostPage from './components/PostPage'
-import Dashboard from './components/Dashboard'
-import styled from 'styled-components'
-import RandomCountry from "./components/RandomCountry"
+import React, { useState, Component, useEffect } from "react"; //TE
+import { Route, Link, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import "./App.css";
+// import PostForm from "./components/PostForm";
+import PostPage from "./components/PostPage";
+import { PrivateRoute } from "./components/PrivateRoute"; //TE
+import Dashboard from "./components/Dashboard";
+import styled from "styled-components";
+import RandomCountry from "./components/RandomCountry";
+import { fetchPosts } from "./actions/PostsActions";
 
-function App() {
+const App = (props) => {
+  const [onDashboard, setOnDashboard] = useState(false);
+  const [onPostPage, setOnPostPage] = useState(false);
 
-  const [onDashboard, setOnDashboard] = useState(false)
-  const [onPostPage, setOnPostPage] = useState(false)
+  const onSubmit = () => {};
 
-  const onSubmit = () => {
-
-  }
-  
   return (
     <>
-    <StyledApp>
-    <div className="app">
-      <div className="title">
-        <h1>Ex-Pat Journal</h1>
-      </div>
-      <nav className="nav">
+      <StyledApp>
+        <div className="app">
+          <div className="title">
+            <h1>Ex-Pat Journal</h1>
+          </div>
+          <nav className="nav">
         <a href="https://focused-carson-e247ce.netlify.app/index.html"><b>Home</b></a>
         <a href="https://focused-carson-e247ce.netlify.app/about%20team.html"><b>Meet The Team</b></a>
         <a href="https://focused-carson-e247ce.netlify.app/location%201.html"><b>Entries</b></a>
@@ -35,40 +35,47 @@ function App() {
       <br />
       <br />
       <br />
-
-        <div className= "button-container">
-          <div className="links">
-            {!onDashboard ? (<>
-              <Link className="link" to="/login">Log In</Link>
-              <Link className="link" to="/register">Register</Link>
-            </>) : ''}
+          <div className="button-container">
+            <div className="links">
+              {!onDashboard ? (
+                <>
+                  <Link className="link" to="/login">
+                    Log In
+                  </Link>
+                  <Link className="link" to="/register">
+                    Register
+                  </Link>
+                </>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
         </div>
-    </div>
-        <br />
       </StyledApp>
-        <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path ="/register">  
-            <Register />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard onDashboard={setOnDashboard} />  
-          </Route>      
-          <Route path="/postpage">
-            <PostPage onPostPage={setOnPostPage} />  
-          </Route>   
-        </Switch>
-        <br />
-        <hr />
-        <RandomCountry />
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <PrivateRoute path="/dashboard">
+          <Dashboard onDashboard={setOnDashboard} />
+        </PrivateRoute>
+        <PrivateRoute path="/postpage">
+          <PostPage onPostPage={setOnPostPage} />
+        </PrivateRoute>
+      </Switch>
+      <br />
+      <hr />
+      <br />
+      <RandomCountry />
     </>
   );
-}
+};
 
-const StyledApp = styled.main `
+const StyledApp = styled.main`
   h1 {
     font-family: 'Rock Salt', cursive;
   }
@@ -79,16 +86,17 @@ const StyledApp = styled.main `
     background-position: center;
     background-size: cover;
     height: 500px;
- }
- 
- .title{
+  }
+
+  .title {
     text-align: center;
     color: black;
-    background-color: #ED6A5A;
+    background-color: #ed6a5a;
     margin: 0 auto;
     width: 100%;
-    font-family: 'Nunito', sans-serif;
- }
+    font-family: "Nunito", sans-serif;
+  }
+
 
  .link {
     border-radius: 5px;
@@ -154,4 +162,8 @@ const StyledApp = styled.main `
   }
 `
 
-export default App;
+const mapStateToProps = (state) => {
+  return state;
+};
+
+export default connect(mapStateToProps, { fetchPosts })(App);

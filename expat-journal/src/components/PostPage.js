@@ -1,27 +1,30 @@
-import React, { useEffect } from "react"
-import {Route, Link, Switch, useHistory} from "react-router-dom"
-import PostForm from "./PostForm"
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { Route, Link, Switch, useHistory } from "react-router-dom";
+import PostForm from "./PostForm";
 
-function PostPage({onPostPage}) {
-    
-    const history = useHistory()
-  
-    const onSubmit = (event) => {
-        event.preventDefault()
-        history.push("/postform")
-    }
+function PostPage({ onPostPage }) {
+  const history = useHistory();
 
-    useEffect(() => {
-        onPostPage(true)
-    })
-    
-    return (
-        <>
+  const onSubmit = (event) => {
+    event.preventDefault();
+    history.push("/postform");
+  };
 
-            <PostForm />
-           
-        </>
-    )
+  useEffect(() => {
+    onPostPage(true);
+  });
+
+  return (
+    <>
+      <PostForm />
+    </>
+  );
 }
 
-export default PostPage;
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts,
+  };
+};
+export default connect(mapStateToProps, {})(PostPage);
