@@ -2,6 +2,7 @@
 
 * App.js
   - Skeleton of the file
+  -test
 * Login.js
   - Page with a place to enter email and password
 * Register.js
@@ -33,13 +34,21 @@
   ::: 
   
   ## COLOR SCHEME:
-  * 
+  * https://coolors.co/ed6a5a-f4f1bb-9bc1bc-5ca4a9-e6ebe0
+      --terra-cotta: #ed6a5aff;
+      --pale-spring-bud: #f4f1bbff;
+      --opal: #9bc1bcff;
+      --cadet-blue: #5ca4a9ff;
+      --alabaster: #e6ebe0ff;
   
   ## FONTS:
-  * 
+  * font-family: 'Nunito', sans-serif;
+  * font-family: 'Rock Salt', cursive;
+  
+  * @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;1,300&family=Rock+Salt&display=swap');
   
   ## Frontend:
   * Tom & Virginia - login, register, postForm, dahsboard
   * Tatiana - functionality
 
-## Deployed URL : https://not-a-potluck.gebel.tech/
+## Deployed URL : https://expatjournal-hn34yna9s.vercel.app/
