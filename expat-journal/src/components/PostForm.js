@@ -7,6 +7,7 @@ import Dashboard from "./Dashboard";
 import DashboardCard from "./DashboardCard";
 import { addPost } from "../actions/PostsActions";
 import styled from "styled-components";
+import DragDrop from "./DragDrop"
 
 const initialFormValues = {
   name: "",
@@ -203,6 +204,8 @@ const PostForm = (props) => {
           </FormGroup>
         </FormGroup>
         <br />
+        <DragDrop />
+        <br />
         <FormGroup check>
           <Label check>
             <Input name="viewable" type="checkbox" onChange={changeHandler} />{" "}
@@ -251,12 +254,40 @@ const StyledForm = styled.form`
       border: gray;
       outline: none;
     }
-  }
-`;
 
+    button {
+        border-radius: 5px;
+        border: 2px solid darkgrey;
+        color: #F4F1BB;
+        background-color: #5CA4A9;
+        padding: 15px;
+        width: 25%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        font-family: 'Nunito', sans-serif;
+        &:hover{
+          background-color: #F4F1BB;
+          color: #5CA4A9;
+          cursor: pointer;
+        }
+        &:focus {
+        border: gray;
+        outline: none;
+        }
+        &:active {
+        border: gray;
+        outline: none;
+        }
+        .dragDrop-container{
+          background-color: gray;
+        }
+
+}`
 const mapStateToProps = (state) => {
   return {
     posts: state.posts,
   };
 };
 export default connect(mapStateToProps, { addPost })(PostForm);
+
