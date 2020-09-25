@@ -1,9 +1,12 @@
-// Virginia's and Tom's code only yet
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import * as yup from "yup";
 import schema from "../formSchemas/postFormSchema";
-import axios from "axios";
+import Dashboard from "./Dashboard";
+import DashboardCard from "./DashboardCard";
+import { addPost } from "../actions/PostsActions";
+import styled from "styled-components";
 
 const initialFormValues = {
   name: "",
@@ -64,8 +67,11 @@ const PostForm = (props) => {
       notes: formValues.notes.trim(),
       rating: formValues.rating,
       viewable: formValues.viewable,
+      user_id: localStorage.getItem("user_id"),
     };
-    axios.post().then().catch();
+    console.log("New post:", newPost);
+    props.addPost(newPost);
+    setFormValues(initialFormValues);
   };
 
   useEffect(() => {
@@ -83,7 +89,7 @@ const PostForm = (props) => {
         <div>{formErrors.title}</div>
       </div>
 
-      <Form onSubmit={submitHandler}>
+      <StyledForm onSubmit={submitHandler}>
         <FormGroup>
           <Label for="name">Name: </Label>
           <Input
@@ -94,6 +100,7 @@ const PostForm = (props) => {
             onChange={changeHandler}
           />
         </FormGroup>
+        <br />
         <FormGroup>
           <Label for="title">Tagline: </Label>
           <Input
@@ -104,6 +111,7 @@ const PostForm = (props) => {
             onChange={changeHandler}
           />
         </FormGroup>
+        <br />
         <FormGroup>
           <Label for="location">Location: </Label>
           <Input
@@ -114,6 +122,7 @@ const PostForm = (props) => {
             onChange={changeHandler}
           />
         </FormGroup>
+        <br />
         <FormGroup>
           <Label for="date">Date: </Label>
           <Input
@@ -124,16 +133,7 @@ const PostForm = (props) => {
             onChange={changeHandler}
           />
         </FormGroup>
-        {/* <FormGroup>
-          <Label for="exampleSelect">Select</Label>
-          <Input type="select" name="select" id="exampleSelect">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </Input>
-        </FormGroup> */}
+        <br />
         <FormGroup>
           <Label for="notes">Post notes: </Label>
           <Input
@@ -143,6 +143,7 @@ const PostForm = (props) => {
             onChange={changeHandler}
           />
         </FormGroup>
+        <br />
         <FormGroup tag="fieldset">
           <legend>rating</legend>
           <FormGroup check>
@@ -201,15 +202,61 @@ const PostForm = (props) => {
             </Label>
           </FormGroup>
         </FormGroup>
+        <br />
         <FormGroup check>
           <Label check>
             <Input name="viewable" type="checkbox" onChange={changeHandler} />{" "}
             Make Post Private
           </Label>
         </FormGroup>
+        <br />
         <Button disabled={disabled}>Submit</Button>
-      </Form>
+      </StyledForm>
+      <br />
+      <br />
+
+      <DashboardCard post={post} />
     </>
   );
 };
-export default PostForm;
+
+const StyledForm = styled.form`
+  input {
+    border: 2px solid darkgrey;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  button {
+    border-radius: 5px;
+    border: 2px solid darkgrey;
+    color: #f4f1bb;
+    background-color: #5ca4a9;
+    padding: 15px;
+    width: 25%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+    &:hover {
+      background-color: #f4f1bb;
+      color: #5ca4a9;
+      cursor: pointer;
+    }
+    &:focus {
+      border: gray;
+      outline: none;
+    }
+    &:active {
+      border: gray;
+      outline: none;
+    }
+  }
+`;
+
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts,
+  };
+};
+export default connect(mapStateToProps, { addPost })(PostForm);

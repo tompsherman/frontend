@@ -1,41 +1,45 @@
-// Virginia's and Tom's code with some mine (TE)
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"; //TE
-import { PrivateRoute } from "./components/PrivateRoute"; //TE
+import React, { useState, Component, useEffect } from "react"; //TE
+import { Route, Link, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import "./App.css";
-import PostForm from "./components/PostForm";
+// import PostForm from "./components/PostForm";
 import PostPage from "./components/PostPage";
+import { PrivateRoute } from "./components/PrivateRoute"; //TE
 import Dashboard from "./components/Dashboard";
 import styled from "styled-components";
+import RandomCountry from "./components/RandomCountry";
+import { fetchPosts } from "./actions/PostsActions";
 
-function App() {
+const App = (props) => {
   const [onDashboard, setOnDashboard] = useState(false);
   const [onPostPage, setOnPostPage] = useState(false);
 
   const onSubmit = () => {};
 
   return (
-    <Router>
+    <>
       <StyledApp>
         <div className="app">
           <div className="title">
             <h1>Ex-Pat Journal</h1>
           </div>
-          <div className="links">
-            {!onDashboard ? (
-              <>
-                <Link to="/login">
-                  <button>Log In</button>
-                </Link>
-                <Link to="/register">
-                  <button onSubmit={onSubmit}>Register</button>
-                </Link>
-              </>
-            ) : (
-              ""
-            )}
+          <div className="button-container">
+            <div className="links">
+              {!onDashboard ? (
+                <>
+                  <Link className="link" to="/login">
+                    Log In
+                  </Link>
+                  <Link className="link" to="/register">
+                    Register
+                  </Link>
+                </>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
         </div>
       </StyledApp>
@@ -46,12 +50,6 @@ function App() {
         <Route path="/register">
           <Register />
         </Route>
-        {/* <Route path="/dashboard">
-          <Dashboard onDashboard={setOnDashboard} />
-        </Route>
-        <Route path="/postpage">
-          <PostPage onPostPage={setOnPostPage} />
-        </Route> */}
         <PrivateRoute path="/dashboard">
           <Dashboard onDashboard={setOnDashboard} />
         </PrivateRoute>
@@ -59,14 +57,19 @@ function App() {
           <PostPage onPostPage={setOnPostPage} />
         </PrivateRoute>
       </Switch>
-    </Router> //TE
+      <br />
+      <hr />
+      <br />
+      <RandomCountry />
+    </>
   );
-}
+};
 
 const StyledApp = styled.main`
   h1 {
     font-family: "Rock Salt", cursive;
   }
+
   .app {
     background-image: url("https://cdn.pixabay.com/photo/2016/01/09/18/27/old-1130731_960_720.jpg");
     background-repeat: no-repeat;
@@ -83,39 +86,37 @@ const StyledApp = styled.main`
     width: 100%;
     font-family: "Nunito", sans-serif;
   }
-  button {
-    border-radius: 15px;
+
+  .link {
+    border-radius: 5px;
+    border: 2px solid darkgrey;
     color: #f4f1bb;
     background-color: #5ca4a9;
     padding: 15px;
-    width: 25%;
+    width: 150px;
+    display: block;
+    margin: 1.5rem auto;
     text-align: center;
+    text-decoration: none;
     font-family: "Nunito", sans-serif;
-  }
-  .links > button {
-    display: flex;
-    justify-content: center;
-    font-family: "Nunito", sans-serif;
-  }
-  .links:a > button {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-family: "Nunito", sans-serif;
-    /* &:hover{
-      background-color: slategrey;
-      color: greenyellow;
+    &:hover {
+      background-color: #f4f1bb;
+      color: #5ca4a9;
       cursor: pointer;
-  }
-  &:focus {
+    }
+    &:focus {
       border: gray;
       outline: none;
-      }
-  &:active {
+    }
+    &:active {
       border: gray;
       outline: none;
-  } */
+    }
   }
 `;
 
-export default App;
+const mapStateToProps = (state) => {
+  return state;
+};
+
+export default connect(mapStateToProps, { fetchPosts })(App);

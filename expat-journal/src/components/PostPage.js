@@ -1,5 +1,5 @@
-// Virginia's and Tom's code only
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { Route, Link, Switch, useHistory } from "react-router-dom";
 import PostForm from "./PostForm";
 
@@ -22,4 +22,9 @@ function PostPage({ onPostPage }) {
   );
 }
 
-export default PostPage;
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts,
+  };
+};
+export default connect(mapStateToProps, {})(PostPage);
