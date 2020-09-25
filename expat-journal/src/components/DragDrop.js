@@ -3,6 +3,35 @@ import {useDropzone} from "react-dropzone"
 import axios from "axios"
 import styled from "styled-components"
 
+const getColor = (props) => {
+    if (props.isDragAccept) {
+        return '#008000';
+    }
+    if (props.isDragReject) {
+        return '#FF0000';
+    }
+    if (props.isDragActive) {
+        return '#2196f3';
+    }
+    return '#eeeeee';
+  }
+
+const StyledDiv = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: ${props => getColor(props)};
+  border-style: dashed;
+  background-color: #fafafa;
+  color: black;
+  outline: none;
+  transition: border .24s ease-in-out;
+`;
+
 function DragDrop (){
     const onDrop = useCallback(acceptedFiles => {
         acceptedFiles.forEach((file)=>{
@@ -19,24 +48,17 @@ function DragDrop (){
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
     return (
-        <StyledDiv className="dragDrop-container">
-            <div {...getRootProps()}>
+        <div className="dragDrop-container">
+            <StyledDiv {...getRootProps()}>
                 <input {...getInputProps()} />
                 {
                     isDragActive ?
                     <p>Drop the files here...</p> :
                     <p>Drag 'n drop a photo here, or click to select photo</p>
                 }
-            </div>
-        </StyledDiv>
+            </StyledDiv>
+        </div>
     )
 }
-
-const StyledDiv = styled.div `
-    .dragDrop-container:hover{
-        border: 2px solid gray;
-        color: blue;
-    }
-`
 
 export default DragDrop

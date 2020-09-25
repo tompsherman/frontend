@@ -149,7 +149,7 @@ const PostForm = (props) => {
         </FormGroup>
         <br />
         <DragDrop />
-
+        <br />
         <FormGroup check>
           <Label check>
             <Input name="viewable" type="checkbox" onChange={changeHandler}/>{' '}
