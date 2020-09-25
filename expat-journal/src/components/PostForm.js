@@ -6,6 +6,7 @@ import axios from "axios"
 import Dashboard from './Dashboard';
 import DashboardCard from './DashboardCard';
 import styled from 'styled-components'
+import DragDrop from "./DragDrop"
 
 const initialFormValues = {
   name: "",
@@ -147,6 +148,8 @@ const PostForm = (props) => {
           </FormGroup>
         </FormGroup>
         <br />
+        <DragDrop />
+
         <FormGroup check>
           <Label check>
             <Input name="viewable" type="checkbox" onChange={changeHandler}/>{' '}
