@@ -49,7 +49,7 @@
 
   -- create dashboard / home page for users with current day, scheduled events, weather etc.
   -- save events in the future
-  --
+  -- scrape for events in certain zip codes at certain dates to plan trips
 
   ## COLOR SCHEME:
 
