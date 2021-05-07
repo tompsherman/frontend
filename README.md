@@ -34,6 +34,19 @@
   ## MUSTS:
 
   ::: review site for functionality and bugs
+  --- cannot login or register; button does nothing on click
+  --- cannot add post, getting a 401 error on submit
+  --- --- see PostActions line 38
+  --- cannot edit post, getting a 401 error on submit
+  --- --- see PostActions line 67
+  --- new post on submit should take you to the dashboard instead of staying on post page
+  --- entries are too large, make smaller card size for dashboard
+  --- --- keep large entries on click to view just that one card
+  --- cannot delete post, getting a 401 error on submit
+  --- ux/ui of everything is haphazard
+  --- login/register buttons are permanently showing even in dashboard etc.
+  --- get rid of home / meet team / entries links
+
   -- create dashboard / home page for users with current day, scheduled events, weather etc.
   -- save events in the future
   --
